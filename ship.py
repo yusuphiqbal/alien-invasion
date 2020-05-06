@@ -22,6 +22,18 @@ class Ship:
         # Start each new ship at the bottom center of the screen.
         self.rect.midbottom = self.screen_rect.midbottom
 
+        # Movement flag.
+        self.moving_right = False
+
+    def update(self):
+        """
+        Update the ship's position based on the movement flag.
+        :return:
+        """
+
+        if self.moving_right:
+            self.rect.x += 1
+
     def blit_me(self):
         """
         Draw the ship at it's current location
