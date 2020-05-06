@@ -5,7 +5,7 @@ from settings import Settings
 
 class AlienInvasion:
     """
-    Overall class to manage game assets and behavious
+    Overall class to manage game assets and behaviours.
     """
 
     def __init__(self):
