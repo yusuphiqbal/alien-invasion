@@ -24,15 +24,19 @@ class Ship:
 
         # Movement flag.
         self.moving_right = False
+        self.moving_left = False
 
     def update(self):
         """
-        Update the ship's position based on the movement flag.
+        Update the ship's position based on the movement flags.
         :return:
         """
 
         if self.moving_right:
             self.rect.x += 1
+
+        if self.moving_left:
+            self.rect.x -= 1
 
     def blit_me(self):
         """
