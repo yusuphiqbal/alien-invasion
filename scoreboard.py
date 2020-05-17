@@ -56,6 +56,16 @@ class ScoreBoard:
         self.high_score_rect.centerx = self.screen_rect.centerx
         self.high_score_rect.top = self.score_rect.top
 
+    def check_high_score(self):
+        """
+        Check to see if there is a new high score.
+        :return:
+        """
+
+        if self.stats.score > self.stats.high_score:
+            self.stats.high_score = self.stats.score
+            self.prep_high_score()
+
     def show_score(self):
         """
         Draw score to the screen
