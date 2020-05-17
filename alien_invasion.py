@@ -51,7 +51,8 @@ class AlienInvasion:
                 self.ship.update()
                 self._update_bullets()
                 self._update_aliens()
-                self._update_screen()
+
+            self._update_screen()
 
     def _check_events(self):
         """
@@ -80,7 +81,17 @@ class AlienInvasion:
         """
 
         if self.play_button.rect.collidepoint(mouse_pos):
+            # Reset game statistics.
+            self.stats.reset_stats()
             self.stats.game_active = True
+
+            # Get rid of any remaining alien and bullets.
+            self.aliens.empty()
+            self.bullets.empty()
+
+            # Create new fleet and center the ship.
+            self._create_fleet()
+            self.ship.center_ship()
 
     def _check_keydown_events(self, event):
         """
