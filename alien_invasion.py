@@ -7,9 +7,9 @@ from alien import Alien
 from bullet import Bullet
 from button import Button
 from game_stats import GameStats
+from scoreboard import ScoreBoard
 from settings import Settings
 from ship import Ship
-from scoreboard import ScoreBoard
 
 
 class AlienInvasion:
@@ -166,6 +166,10 @@ class AlienInvasion:
 
         # Remove any bullets and aliens that have collided.
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+
+        if collisions:
+            self.stats.score += self.settings.alien_points
+            self.sb.prep_score()
 
         if not self.aliens:
             # Destroy existing bullets and create new fleet.
